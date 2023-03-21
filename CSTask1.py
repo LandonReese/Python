@@ -5,13 +5,14 @@ N = 0       # number of positions to shift characters in the inputText by. N>=1
 D = 0       # direction of shift, D can be either be 1 (right) or -1 (left)
 
 inputText = input("Enter a string: ")
+# for char in inputText:
+#     if int(char) = 32 or int(char) = 33:
 
 N = int(input("Enter a positive integer: "))
 while N <= 0:
     N = int(input("Invalid input. Please enter a positive integer: "))
 
 D = int(input("Enter 1 (Right shift) or -1 (Left shift): "))
-
 while D != 1 and D != -1:
     D = int(input("Invalid input. Enter 1 (Right shift) or -1 (Left shift): "))
 
@@ -22,8 +23,8 @@ while D != 1 and D != -1:
 
 # 1. Reverse the input text
 reverseText = "".join(reversed(inputText))
-print("inputText:   " + inputText)
-print("reverseText: " + reverseText)
+print("inputText:     " + inputText)
+print("reverseText:   " + reverseText)
 
 # 2. Shift all the ASCII characters in reversed input text by “N” positions.
 for char in reverseText:
