@@ -1,4 +1,5 @@
-def encryptText():
+def customEncrypt():# => int:
+    inputText = ""
 
 inputText = ""
 reverseText = ""
