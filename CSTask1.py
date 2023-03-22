@@ -1,3 +1,5 @@
+def encryptText():
+
 inputText = ""
 reverseText = ""
 encryptedText = ""
