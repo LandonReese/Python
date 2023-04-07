@@ -100,4 +100,5 @@ key = "hill"
 key = key.upper().replace(" ","")
 
 ciphertext = cipher_encryption(plaintext, key)
+print(ciphertext)
 # cipher_decryption(ciphertext, key)
