@@ -1,12 +1,15 @@
 import sys
 import numpy as np
+
 def cipher_encryption(plain, key):
     encryp_text = plain
+    finalDeletion = False
     
     # Handle condition if the message length is odd.
     if len(plain) % 2 == 1:
         # print("odd, appending X")
         encryp_text += "X"
+        finalDeletion = True
     # else:
         # print("even")
     # <Enter code here>
@@ -23,8 +26,8 @@ def cipher_encryption(plain, key):
             msgMatrix[i, j] = ord(encryp_text[k])
             k += 1
     # Matrices contains int values for letters
-    print("msgMatrix:")
-    print(msgMatrix)
+    # print("msgMatrix:")
+    # print(msgMatrix)
     
     # Convert key to 2x2
     k = 0
@@ -34,8 +37,8 @@ def cipher_encryption(plain, key):
             key2d[i, j] = ord(key[k])
             k += 1
     # #Enter code here>
-    print("key2d:")
-    print(key2d)
+    # print("key2d:")
+    # print(key2d)
     
     # Decrement values by 65, 'A", so modulus math works
     for i in range(2):
@@ -43,10 +46,10 @@ def cipher_encryption(plain, key):
             key2d[i, j] -= 65
             msgMatrix[i, j] -= 65
     
-    print("msgMatrix:")
-    print(msgMatrix)
-    print("key2d:")
-    print(key2d)
+    # print("msgMatrix:")
+    # print(msgMatrix)
+    # print("key2d:")
+    # print(key2d)
     
     # checking validity of the key
     validKey = False # Key needs to be proven to work
@@ -79,14 +82,13 @@ def cipher_encryption(plain, key):
         encryp_text += chr(text)
     # <Enter code here>
     
+    # If message length was odd, reduce length by 1
+    if(finalDeletion):
+        # print(encryp_text)
+        encryp_text = encryp_text[:-1]
+        # print(encryp_text)
     
     print("Encrypted text: {}".format(encryp_text))
-    
-    print("msgMatrix:")
-    print(msgMatrix)
-    print("key2d:")
-    print(key2d)
-    
     return encryp_text
 
 print("Running the encryption function.")
