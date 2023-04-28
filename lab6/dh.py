@@ -12,7 +12,7 @@ def power(a, b, p):
 # #Write Function 2 that generates and returns a public key using P,G, 
 # and a privateKey chosen by the sender 
 # def dh_generatePublicKey(P,G,privateKey): 
-#     <Enter your code here> 
+#     <Enter your code here>  
 def dh_generatePublicKey(P, G, privateKey):
     return pow(G, privateKey, P)
     #Your code for this function (copy from your lab5 submission)
