@@ -30,7 +30,7 @@ def main():
     port = 8080
     addr = (host, port)
     UDPSock = socket(AF_INET, SOCK_DGRAM)
-    UDPSock.setsockopt(SOL_SOCKET, SO_BROADCAST, 1)
+    UDPSock.setsockopt(SOL_SOCKET, SO_BROADCAST, 1) # Change if you are running on linux it is stupid
  
     # initiate the encryption variables
     sendUsingPrivate = False;
