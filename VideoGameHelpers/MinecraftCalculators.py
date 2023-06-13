@@ -15,4 +15,11 @@ def xyDiag(x1, y1, x2, y2):
         print(tempx, tempy)
     return
 
+def netherCoords(coord1, coord2):
+    print("Coords:")
+    print(coord1/8, coord2/8)
+
+netherCoords(12815, 5267)
+netherCoords(44650, 6774)
+netherCoords(23298, 4589)
 xyDiag(-50, -141, -49, -140)
