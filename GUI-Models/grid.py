@@ -16,6 +16,17 @@ class Grid:
         self.window.bind('<KeyPress>', self.on_key_press)
         self.update_gui()
 
+        # Added key bindings for player 1 and 2
+        self.window.bind('<KeyPress-w>', self.on_key_press)  # Bind 'w' key for player 1
+        self.window.bind('<KeyPress-a>', self.on_key_press)  # Bind 'a' key for player 1
+        self.window.bind('<KeyPress-s>', self.on_key_press)  # Bind 's' key for player 1
+        self.window.bind('<KeyPress-d>', self.on_key_press)  # Bind 'd' key for player 1
+        self.window.bind('<KeyPress-Up>', self.on_key_press)  # Bind up arrow key for player 2
+        self.window.bind('<KeyPress-Down>', self.on_key_press)  # Bind down arrow key for player 2
+        self.window.bind('<KeyPress-Left>', self.on_key_press)  # Bind left arrow key for player 2
+        self.window.bind('<KeyPress-Right>', self.on_key_press)  # Bind right arrow key for player 2
+
+
     def create_labels(self, window):
         for row in range(self.size):
             for col in range(self.size):
@@ -60,8 +71,10 @@ class Grid:
 
         if event.char in ['w', 'a', 's', 'd']:
             player = self.players[0]  # Player 1 controls with WASD keys
-        else:
+        elif event.keysym.lower() in ['up', 'down', 'left', 'right']:
             player = self.players[1]  # Player 2 controls with arrow keys
+        else:
+            return
 
         new_row, new_col = player.get_new_position(event.keysym.lower())
 
@@ -69,6 +82,7 @@ class Grid:
             player.move(new_row, new_col)
 
         self.update_current_cell_color()
+
 
 
 
