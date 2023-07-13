@@ -59,5 +59,13 @@ def on_key_press(event):
 # Bind keypress event to the window
 window.bind('<KeyPress>', on_key_press)
 
+# Function to continuously update the GUI
+def update_gui():
+    update_current_cell_color(player)
+    window.after(100, update_gui)  # Update every 100 milliseconds
+
+# Start updating the GUI
+update_gui()
+
 # Run the GUI event loop
 window.mainloop()
