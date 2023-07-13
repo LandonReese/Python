@@ -23,21 +23,16 @@ window.title("Grid Search GUI")
 grid_labels = [[None] * grid_size for _ in range(grid_size)]
 for row in range(grid_size):
     for col in range(grid_size):
-        label = tk.Label(window, width=8, height=2, relief=tk.RAISED)
+        label = tk.Label(window, width=8, height=2, relief=tk.RAISED, bg='black')
         label.grid(row=row, column=col)
         grid_labels[row][col] = label
 
 # Initial position of the player
-player = Player(0, 0, 'green')
+player = Player(0, 0, 'red')
 
 # Function to update the current cell's color
 def update_current_cell_color(player):
-    for r in range(grid_size):
-        for c in range(grid_size):
-            if r == player.row and c == player.col:
-                grid_labels[r][c].config(bg=player.color)
-            else:
-                grid_labels[r][c].config(bg='white')
+    grid_labels[player.row][player.col].config(bg=player.color)
 
 # Function to reset the previous cell's color
 def reset_previous_cell_color(player):
@@ -51,16 +46,15 @@ def on_key_press(event):
     # Move the player based on the pressed key
     if event.keysym == 'w' and player.row > 0:
         player.row -= 1
-        update_current_cell_color(player)
     elif event.keysym == 's' and player.row < grid_size - 1:
         player.row += 1
-        update_current_cell_color(player)
     elif event.keysym == 'a' and player.col > 0:
         player.col -= 1
-        update_current_cell_color(player)
     elif event.keysym == 'd' and player.col < grid_size - 1:
         player.col += 1
-        update_current_cell_color(player)
+    
+    # Update the current cell's color
+    update_current_cell_color(player)
 
 # Bind keypress event to the window
 window.bind('<KeyPress>', on_key_press)
